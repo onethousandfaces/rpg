@@ -1,0 +1,11 @@
+{{ define "Content" }}
+  Key value pairs:
+  <ul>
+    {{ range $key, $record := .records }}
+    <li> <a href="/home/edit/?id={{ $key }}">Edit</a> -- {{ $record.Key }} --&gt; {{ $record.Value }}
+    {{ end }}
+  </ul>
+  <a href="/home/add">Add another value</a>
+{{ end }}
+
+{{ template "Layout" . }}

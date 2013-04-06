@@ -206,6 +206,9 @@ class Director(event.EventDispatcher):
     #: a dict with locals for the interactive python interpreter (fill with what you need)
     interpreter_locals = {}
 
+    # The GUI, if one is currently attached
+    gui = None
+
     def init(self, *args, **kwargs):
         """
         Initializes the Director creating the main window.
@@ -438,6 +441,9 @@ class Director(event.EventDispatcher):
         if self.show_interpreter:
             self.python_interpreter.visit()
 
+        # Draw the GUI
+        if self.gui != None:
+          self.gui.on_draw()
 
     def push(self, scene):
         """Suspends the execution of the running scene, pushing it

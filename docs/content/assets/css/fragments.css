@@ -1,0 +1,293 @@
+/* Local page styles */
+body {
+	padding-top: 20px;
+	padding-bottom: 60px;
+}
+
+.actions {
+  position: relative;
+  top: 45px;
+  left: -120px;
+  width: 50px;
+  float: left;
+  margin-right: -100px;
+}
+.actions a {
+  width: 80px;
+  margin-bottom: 5px;
+}
+
+/* Fragment editor css */
+.fragment-title {
+	font-size: 1.1em;
+}
+
+.fragment-tag {
+	display: inline-block;
+	padding: 3px 3px;
+	background: #ddd;
+	border-radius: 3px;
+	color: #000;
+	font-size: 8px;
+	margin:  0px 0px 0px 3px;
+	line-height: 8px;
+	font-family: verdana;
+}
+
+.fragment-editor {
+	margin: 42px 0px 0px;
+  position: absolute;
+}
+
+#fragment-full-content {
+	margin-top: 15px;
+  border: 1px solid #aaa !important;
+  border-radius: 4px;
+  background: #f5f5f5;
+  padding: 0px 10px 10px;
+}
+
+/* Edit mode display hacks */
+#fragment-full-content {
+	 font-family: arial;
+	 font-size: 13px !important;
+	 line-height: 15px;
+	 margin-top: 33px;
+   padding-top: 10px;
+}
+
+#fragment-full-content p {
+  margin-left: 10px;
+}
+
+#fragment-full-content h1,
+#fragment-full-content h2,
+#fragment-full-content h3,
+#fragment-full-content h4,
+#fragment-full-content h5 {
+  display: block;
+	margin: 0px 0px 5px 0px;
+  font-family: Arial, Verdena;
+  height: 35px;
+  padding: 10px 10px 0px 10px;
+  line-height: 35px;
+  border-radius: 4px;
+}
+
+#fragment-full-content h1.small,
+#fragment-full-content h2.small,
+#fragment-full-content h3.small,
+#fragment-full-content h4.small,
+#fragment-full-content h5.small {
+  margin-top: 0px !important;
+  padding-top: 0px !important;
+}
+
+#fragment-full-content h1 {
+  font-size: 25px;
+  color: #000;
+}
+
+#fragment-full-content h2 {
+  font-size: 22px;
+  color: #333;
+}
+
+#fragment-full-content h3 {
+  font-size: 20px;
+  color: #666;
+}
+
+#fragment-full-content h4 {
+  font-size: 18px;
+  color: #888;
+}
+
+#fragment-full-content h5 {
+  font-size: 14px;
+  color: #999;
+}
+
+#fragment-full-content .labels {
+  text-align: right;
+  margin-top: -39px;
+}
+
+#fragment-full-content label {
+  padding: 3px 10px;
+  margin: 0px 5px 5px 0px;
+  background: #afafaf;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 14px;
+  line-height: 22px;
+  height: 22px;
+  display: inline-block;
+}
+
+#fragment-full-content label.green, 
+#fragment-full-content label.g {
+  background: #2fdf2f !important;
+}
+
+#fragment-full-content label.red,
+#fragment-full-content label.r {
+  background: #ff3f3f !important;
+}
+
+#fragment-full-content label.blue,
+#fragment-full-content label.b {
+  background: #6f6fff !important;
+}
+
+#fragment-full-content b.green, 
+#fragment-full-content b.g {
+  color: #2fdf2f !important;
+}
+
+#fragment-full-content b.red,
+#fragment-full-content b.r {
+  color: #ff3f3f !important;
+}
+
+#fragment-full-content b.blue,
+#fragment-full-content b.b {
+  color: #6f6fff !important;
+}
+
+#fragment-full-content code {
+  color: #33f;
+  white-space: pre;
+  font-family: monospace;
+  display: block;
+  unicode-bidi: embed
+  background: #fafafa;
+  border: 0px;
+  margin-top: -10px;
+}
+
+#fragment-full-content code em {
+  color: #b00;
+  font-weight: bold;
+  font-size: 1.0em;
+}
+
+.fragment {
+	margin: 0px 0px;
+	padding: 10px;
+}
+
+#fragment-full-title {
+  font-style: normal;
+  text-decoration: none;	
+  font-size: 20px;
+  color: #999999;
+  line-height: 40px;
+}
+
+.fragment-editor input {
+  width: 95%;
+}
+
+.fragment-editor textarea {
+  width: 95%;
+  height: 300px;
+}
+
+/** Main nav */
+
+.browse {
+  margin-top: 35px;
+  margin-left: 30px;
+}
+
+.browse h2 {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 0px;
+  margin: 10px 0px 5px;
+  line-height: 20px;
+}
+
+.box {
+	padding: 4px 10px;
+	margin: 2px 0px;
+}
+
+.masthead {
+	margin-top: 15px;
+}
+
+/* Custom container */
+.container {
+	margin: 0 auto;
+	max-width: 1000px;
+}
+
+.container>hr {
+	margin: 60px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+	margin: 80px 0;
+	text-align: center;
+}
+
+.jumbotron h1 {
+	font-size: 100px;
+	line-height: 1;
+}
+
+.jumbotron .lead {
+	font-size: 24px;
+	line-height: 1.25;
+}
+
+.jumbotron .btn {
+	font-size: 21px;
+	padding: 14px 24px;
+}
+
+/* Supporting marketing content */
+.marketing {
+	margin: 60px 0;
+}
+
+.marketing p+h4 {
+	margin-top: 28px;
+}
+
+/* Customize the navbar links to be fill the entire space of the .navbar */
+.navbar .navbar-inner {
+	padding: 0;
+}
+
+.navbar .nav {
+	margin: 0;
+	display: table;
+	width: 100%;
+}
+
+.navbar .nav li {
+	display: table-cell;
+	width: 1%;
+	float: none;
+}
+
+.navbar .nav li a {
+	font-weight: bold;
+	text-align: center;
+	border-left: 1px solid rgba(255, 255, 255, .75);
+	border-right: 1px solid rgba(0, 0, 0, .1);
+}
+
+.navbar .nav li:first-child a {
+	border-left: 0;
+	border-radius: 3px 0 0 3px;
+}
+
+.navbar .nav li:last-child a {
+	border-right: 0;
+	border-radius: 0 3px 3px 0;
+}

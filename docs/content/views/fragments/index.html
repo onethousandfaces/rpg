@@ -1,0 +1,52 @@
+{{ define "Content" }}
+
+  {{ $urls := .Urls }}
+  
+  <!-- Extra stuff -->
+  <div class="actions">
+    <a class="btn" href="{{ $urls.FragmentAdd }}">New</a>
+  </div>
+  
+  <div class="browse">
+    <div class="row">
+      <div class="span4">
+
+        <!-- List of fragments we know about -->
+        <h2>Everything else...</h2>
+        {{ range $item := .Model.Items }}
+          <div class="box">
+            <a class="fragment-title" href="{{ $urls.FragmentEdit $item.Id }}">{{ $item.Title }}</a> 
+            {{ range $tag := $item.Tags }}
+              <span class="fragment-tag">
+                {{ $tag }}
+              </span>
+            {{ end }}
+          </div>
+        {{ end }}
+
+      </div>
+      <div class="span4">
+  
+        <!-- Recently opened items -->
+        <h2>Recent</h2>
+        {{ range $item := .Model.Recent }}
+          <div class="box">
+            <a class="fragment-title" href="{{ $urls.FragmentEdit $item.Id }}">{{ $item.Title }}</a> 
+            {{ range $tag := $item.Tags }}
+              <span class="fragment-tag">
+                {{ $tag }}
+              </span>
+            {{ end }}
+          </div>
+        {{ end }}
+
+      </div>
+    </div>
+  </div>
+    
+{{ end }}
+
+{{ define "Scripts" }}
+{{ end }}
+
+{{ template "_layout" . }}

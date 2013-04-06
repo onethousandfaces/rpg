@@ -1,0 +1,71 @@
+{{ define "Content" }}
+
+<!-- Header -->
+<div class="navbar navbar-inverse navbar-fixed-top fragment-header">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      <div id="fragment-full-title">{{ .Model.Title }} </div>
+    </div>
+  </div>
+</div>
+
+<!-- Extra stuff -->
+<div class="actions">
+  <a class="btn" href="{{ .Urls.FragmentIndex }}">Home</a> 
+  <a class="btn" href="#" id="fragment-save">Save</a> 
+  <a class="btn" href="#" id="fragment-delete">Delete</a> 
+</div>
+
+<!-- List of fragments we know about -->
+<div class="row">
+	<div class="span8">
+		<div class="fragment">
+			<div id="fragment-full-content">{{ .Raw }}</div>
+		</div>
+	</div>
+	<div class="span4">
+		<div class="fragment-editor">
+		  <form action="{{ .Urls.FragmentSave }}" method="POST" id="fragment-form">
+			  <input autocomplete="off" name="Id" value="{{ .Model.Id }}" type="hidden"/>
+				<input autocomplete="off" name="Title" id="fragment-title" type="text" value="{{ .Model.Title }}" />
+				<input autocomplete="off" name="AllTags" id="fragment-tags" type="text" value="{{ .Model.AllTags }}" />
+				<textarea autocomplete="off" name="Content" id="fragment-content" rows="" cols="">{{ .Model.Content }}</textarea>
+		  </form>
+		  <form action="{{ .Urls.FragmentDelete }}" method="POST" id="fragment-delete-form" style="display: none;">
+			  <input name="Id" value="{{ .Model.Id }}" type="hidden"/>
+			</form>
+		</div>
+	</div>
+</div>
+
+{{ end }} 
+
+{{ define "Scripts" }}
+
+	<script>
+		<!-- Live updates -->
+		$("#fragment-content").keyup(function() { $("#fragment-full-content").html($("#fragment-content").val()); });
+		$("#fragment-title").keyup(function() { $("#fragment-full-title").html($("#fragment-title").val()); });
+		$("#fragment-content").change(function() { $("#fragment-full-content").html($("#fragment-content").val()); });
+		$("#fragment-title").change(function() { $("#fragment-full-title").html($("#fragment-title").val()); });
+		
+		<!-- Actions -->
+		$("#fragment-save").click(function() { $("#fragment-form").submit(); return false; });
+		$("#fragment-delete").click(function() { $("#fragment-delete-form").submit(); return false; });
+		
+		<!-- Float fragment editor at the top of the page -->
+		var offset = $(".fragment-editor").offset();
+		var magic = offset.top - 40;
+		var mfloat = 10;
+		var update = function(event) {
+			var top = $(window).scrollTop();
+			var rel = top < (magic - mfloat) ? magic - top : mfloat;
+			$(".fragment-editor").css("top", top + rel + "px")
+		}
+		$(window).scroll(update);
+		update();
+	</script>
+	
+{{ end }}
+
+{{ template "_layout" . }}

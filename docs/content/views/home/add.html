@@ -1,0 +1,9 @@
+{{ define "Content" }}
+  <form action="/home/add" method="POST">
+    Key: <input name="Key" type="text"/><br/>
+    Value: <input name="Value" type="text"/><br/>
+    <input type="submit"/>
+  </form>
+{{ end }}
+
+{{ template "Layout" . }}

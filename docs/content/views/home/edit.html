@@ -1,0 +1,10 @@
+{{ define "Content" }}
+  <form action="/home/edit" method="POST">
+    Key: <input name="Key" type="text" value="{{ .record.Key }}"/><br/>
+    Value: <input name="Value" type="text" value="{{ .record.Value }}"/><br/>
+    <input type="hidden" name="id" value="{{ .key }}"/>
+    <input type="submit" value="Update"/>
+  </form>
+{{ end }}
+
+{{ template "Layout" . }}
