@@ -1,7 +1,30 @@
 import pyglet
 import cocos
+from pywidget.dialog import Dialog
+from pywidget.button import Button
+from pywidget.vbox import VBox
 
-class Test(cocos.layer.Layer):
+class Ui(cocos.cocosnode.CocosNode):
+  """ User interface for this layer """
+
+  def on_enter(self):
+    button = Button(text='Hello World')
+    self.on_button_press = button.event(self.on_button_press)
+    vbox = VBox(elements=[button])
+    self.dialog = Dialog(title='My Dialog', x=100, y=100, content=vbox, width=200, height=100)
+    cocos.director.director.window.push_handlers(self.dialog)
+
+  def on_button_press(self, button):
+     print('Button pressed: %s' % button)
+
+  def on_exit(self):
+    cocos.director.director.window.remove_handlers(self.dialog)
+
+  def draw(self):
+    self.dialog.on_draw()
+
+class Content(cocos.layer.Layer):
+  """ Sprites and complicated stuff for this layer """
 
   # Mark this class as receiving events
   is_event_handler = True
@@ -16,7 +39,7 @@ class Test(cocos.layer.Layer):
   widgets = {}
 
   def __init__(self):
-    super( Test, self ).__init__()
+    super( Content, self ).__init__()
     self.widgets['input'] = cocos.text.Label("", x=10, y=30)
     self.widgets['output'] = cocos.text.Label("", x=10, y=300)
     self.add(self.widgets['input'])
@@ -37,3 +60,9 @@ class Test(cocos.layer.Layer):
   def on_key_release(self, key, modifiers):
     self.keys_pressed.remove(key)
     self.update_text()
+
+class Test:
+  """ Factory for easy access to instances of the view types """
+  @classmethod
+  def layers(self):
+    return [ Ui(), Content() ]
