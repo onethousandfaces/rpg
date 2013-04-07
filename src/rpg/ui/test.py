@@ -2,19 +2,23 @@ import pyglet
 import cocos
 from pywidget.dialog import Dialog
 from pywidget.button import Button
+from pywidget.textbox import Textbox
 from pywidget.vbox import VBox
 
 class Ui(cocos.cocosnode.CocosNode):
   """ User interface for this layer """
 
+  button1 = Button(text='Hello World')
+
   def on_enter(self):
-    button = Button(text='Hello World')
-    self.on_button_press = button.event(self.on_button_press)
-    vbox = VBox(elements=[button])
+    text = Textbox(text="Hi")
+    #self.on_button_press = button.event(self.on_button_press)
+    vbox = VBox(elements=[self.button1, text])
     self.dialog = Dialog(title='My Dialog', x=100, y=100, content=vbox, width=200, height=100)
     cocos.director.director.window.push_handlers(self.dialog)
 
-  def on_button_press(self, button):
+  @button1.event
+  def on_button_press(button):
      print('Button pressed: %s' % button)
 
   def on_exit(self):
@@ -22,6 +26,7 @@ class Ui(cocos.cocosnode.CocosNode):
 
   def draw(self):
     self.dialog.on_draw()
+
 
 class Content(cocos.layer.Layer):
   """ Sprites and complicated stuff for this layer """
