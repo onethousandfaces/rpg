@@ -50,7 +50,7 @@ class Bootstrap():
       going on, turn __DEBUG to true.
   """
 
-  __DEBUG = False
+  __DEBUG = True
   """ Output debug messages? """
   
   __libPattern = "lib$"
