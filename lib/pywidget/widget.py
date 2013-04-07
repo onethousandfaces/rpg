@@ -215,6 +215,13 @@ class Widget(EventDispatcher):
         '''
         return self._root_x, self._root_y, self._width, self._height
     
+    # ___________________________________________________________ on_key_press
+    def on_key_press(self, symbol, modifiers):
+        ''' Handles on_key_press events '''
+        for i in self._elements:
+          if hasattr(self._elements[i], 'on_key_press'):
+            self._elements[i].on_key_press(symbol, modifiers)
+
     # ___________________________________________________________ on_mouse_press
     def on_mouse_press(self, x, y, button, modifiers):
         ''' Handles on_mouse_press events
